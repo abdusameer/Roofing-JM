@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roof Sequence · JM Roofing concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Unofficial Lumera Creative concept prototype: one roof, its layers, and how each layer handles Los Angeles heat, wind and rain.">
+<meta name="theme-color" content="#e3e1db">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Cpath d=%22M1 9 8 3l7 6v1H1z%22 fill=%22%231b1a18%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="preload" as="image" href="media/stills-desktop/opening.webp" media="(min-width: 1024px)" fetchpriority="high">
+<link rel="preload" as="image" href="media/stills-portrait/opening.webp" media="(max-width: 1023.98px)" fetchpriority="high">
+<script>
+/* Tier gate before first paint (no layout shift). Re-evaluated live by sequence.js. */
+(function () {
+  var d = document.documentElement, q = new URLSearchParams(location.search).get("tier");
+  function mm(s) { return window.matchMedia(s).matches; }
+  function pick() {
+    if (/^(static|reduced|desktop|mobile)$/.test(q || "")) return q;
+    if (mm("(prefers-reduced-motion: reduce)")) return "reduced";
+    var c = navigator.connection;
+    if (c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || ""))) return "static";
+    if ((navigator.deviceMemory && navigator.deviceMemory <= 1) || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2)) return "static";
+    if (mm("(orientation: landscape) and (pointer: coarse) and (max-height: 540px)")) return "static";
+    if (mm("(min-width: 1024px) and (min-height: 600px)") && !mm("(pointer: coarse)")) return "desktop";
+    return "mobile";
+  }
+  window.__roofTier = pick;
+  d.className = "js tier-" + pick();
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#proof">Skip the roof sequence</a>
+<p class="concept-bar" role="note">Unofficial concept by Lumera Creative. Not affiliated with or approved by JM Roofing 3rd Generation.</p>
+
+<header class="site-header">
+  <a class="brand" href="#top"><b>JM Roofing 3rd Generation</b><span class="lic">CSLB Lic. #1084651 · C39 Roofing</span></a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#sequence">The roof</a>
+    <a href="#proof">Proof</a>
+    <a href="#estimate">Estimate</a>
+  </nav>
+  <span class="hdr-phone"><span class="sr-only">Phone: </span>(323) 245-9154</span>
+  <details class="menu">
+    <summary aria-label="Menu">Menu</summary>
+    <nav aria-label="Primary (mobile)">
+      <a href="#sequence">The roof</a>
+      <a href="#ch-anatomy">Anatomy</a>
+      <a href="#ch-heat">Heat</a>
+      <a href="#ch-wind">Wind</a>
+      <a href="#ch-rain">Rain</a>
+      <a href="#proof">Proof</a>
+      <a href="#estimate">Estimate</a>
+      <hr>
+      <span class="mono" style="display:block;padding:8px 12px;font-size:.8rem">Phone (323) 245-9154</span>
+    </nav>
+  </details>
+  <a class="btn" href="#estimate">Get an estimate now</a>
+</header>
+
+<main id="top">
+<section class="sequence" id="sequence" aria-label="How one roof works">
+  <!-- Decorative stage: every fact it shows is repeated in the chapter text below. -->
+  <div class="stage" aria-hidden="true">
+    <div class="frame">
+      <picture>
+        <source media="(max-width: 1023.98px), (pointer: coarse)" srcset="media/stills-portrait/opening.webp">
+        <img class="stage-still" src="media/stills-desktop/opening.webp" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
+      </picture>
+      <video class="stage-video" muted playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+      <div class="ovs"></div>
+      <div class="labels"></div>
+    </div>
+    <p class="stage-note note-illus">Illustration of how each layer works. Not a product test.</p>
+    <p class="cond-chip" data-c=""><i></i><span></span></p>
+  </div>
+
+  <a class="seq-skip" href="#proof">Skip the sequence ↓</a>
+  <nav class="rail" aria-label="Roof sequence chapters">
+    <ol>
+      <li><a href="#ch-opening"><span>Roof</span></a></li>
+      <li><a href="#ch-anatomy"><span>Anatomy</span></a></li>
+      <li><a href="#ch-panel"><span>Panel</span></a></li>
+      <li><a href="#ch-heat"><span>Heat</span></a></li>
+      <li><a href="#ch-wind"><span>Wind</span></a></li>
+      <li><a href="#ch-rain"><span>Rain</span></a></li>
+      <li><a href="#ch-return"><span>Return</span></a></li>
+      <li><a href="#ch-reassembly"><span>Together</span></a></li>
+      <li class="skip-seq"><a href="#proof"><span>Skip to proof</span></a></li>
+    </ol>
+  </nav>
+
+  <div class="chapters">
+    <p class="sr-only">This section follows one roof in eight steps: the finished roof, its layers lifted apart, one corner panel lifted out, that panel in summer heat, Santa Ana wind and winter rain, the panel returning, and the roof closing again. Each step is described in text; the moving picture only illustrates it.</p>
+
+    <section class="chapter" id="ch-opening" data-ch="opening" data-f0="0" data-f1="0" style="--len:70;--len-m:62" aria-labelledby="h-opening">
+      <div class="card">
+        <span class="kicker">JM Roofing 3rd Generation · Los Angeles</span>
+        <h1 id="h-opening" class="display">Every layer has a job.</h1>
+        <p class="lede">Scroll beneath the surface.</p>
+        <p class="note">An illustrated look at the shingle system named in JM Roofing's own project posts: Owens Corning Duration COOL. <span class="tag">Pending owner confirmation</span></p>
+        <div class="actions"><a class="btn" href="#estimate">Get an estimate now</a></div>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/stills-desktop/opening.webp" width="1600" height="900" loading="lazy" alt="Illustration: a single-story stucco house with a hip roof of light grey laminated shingles, seen from the front left." decoding="async"></div>
+        <div class="frame f-port"><img src="media/stills-portrait/opening.webp" width="864" height="1080" loading="lazy" alt="Illustration: a single-story stucco house with a hip roof of light grey laminated shingles, seen from the front left." decoding="async"></div>
+        <figcaption>Proxy illustration by Lumera Creative, not a photo of a JM Roofing project.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-anatomy" data-ch="anatomy" data-f0="0" data-f1="112" style="--len:150;--len-m:112" aria-labelledby="h-anatomy">
+      <div class="card">
+        <span class="kicker"><span class="n">01</span> · Anatomy</span>
+        <h2 id="h-anatomy">Five layers, and the air under them.</h2>
+        <ol class="layers">
+          <li><span><b>Hip and ridge caps</b> close the lines where two slopes meet. A ridge vent sits under the ridge caps (vent type to be confirmed).</span></li>
+          <li><span><b>Laminated shingles</b> are the weather surface. Mineral granules shield the asphalt from the sun.</span></li>
+          <li><span><b>Underlayment</b> is a second water barrier over the whole deck.</span></li>
+          <li><span><b>Drip edge</b> is metal at the eave that carries water off the deck edge. At the eave, the underlayment laps over it.</span></li>
+          <li><span><b>Roof deck</b> is the solid wood sheathing that holds the fasteners.</span></li>
+          <li><span><b>Attic air</b> comes in through the soffit vent and leaves near the ridge.</span></li>
+          <li class="ctx"><span><b>Ceiling insulation</b> sits below the attic. It is not part of the roof and is shown for context.</span></li>
+        </ol>
+        <p class="note">Conceptual illustration, not construction guidance.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/stills-desktop/anatomy.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: the same roof with its layers lifted apart above the house: caps, shingles, dark underlayment, white drip edge and tan roof deck, then rafters and grey ceiling insulation. One corner section stays in place.">
+          <!--gen:ov:anatomy:desk--><svg class="ov" data-ov="anatomy" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline class="air flow" points="1197.4,668.6 1181.4,605.6 1049.8,520.4 976.2,423.9 960.2,369.9"/><path class="head c-air" d="M960.2 369.9L967.6 378L958.4 380.8Z"/></svg><span class="mk" aria-hidden="true" style="left:50.5%;top:45%">1</span><span class="mk" aria-hidden="true" style="left:68.6%;top:41.3%">2</span><span class="mk" aria-hidden="true" style="left:74.7%;top:46.1%">3</span><span class="mk" aria-hidden="true" style="left:80.9%;top:53.7%">4</span><span class="mk" aria-hidden="true" style="left:80.1%;top:50.9%">5</span><span class="mk" aria-hidden="true" style="left:65.6%;top:57.8%">6</span><span class="mk" aria-hidden="true" style="left:59.5%;top:64.9%">7</span><!--/gen--></div>
+        <div class="frame f-port"><img src="media/stills-portrait/anatomy.webp" width="864" height="1080" loading="lazy" decoding="async" alt="Illustration: the same roof with its layers lifted apart above the house: caps, shingles, dark underlayment, white drip edge and tan roof deck, then rafters and grey ceiling insulation. One corner section stays in place.">
+          <!--gen:ov:anatomy:port--><svg class="ov" data-ov="anatomy" viewBox="0 0 864 1080" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline class="air flow" points="621.5,746.5 612.8,670.9 518.8,603.6 466.1,525 457.5,460.2"/><path class="head c-air" d="M457.5 460.2L463.5 469.4L454.1 470.6Z"/></svg><span class="mk" aria-hidden="true" style="left:39.2%;top:51%">1</span><span class="mk" aria-hidden="true" style="left:64.2%;top:46.5%">2</span><span class="mk" aria-hidden="true" style="left:72.5%;top:49%">3</span><span class="mk" aria-hidden="true" style="left:80.8%;top:53.7%">4</span><span class="mk" aria-hidden="true" style="left:80%;top:51.4%">5</span><span class="mk" aria-hidden="true" style="left:60.1%;top:55.9%">6</span><span class="mk" aria-hidden="true" style="left:51.7%;top:60.8%">7</span><!--/gen--></div>
+        <figcaption>Numbers match the list. Proxy illustration by Lumera Creative.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-panel" data-ch="panel" data-f0="112" data-f1="165" style="--len:80;--len-m:50" aria-labelledby="h-panel">
+      <div class="card">
+        <span class="kicker"><span class="n">02</span> · The proof panel</span>
+        <h2 id="h-panel">One corner, every layer.</h2>
+        <p>A section of the eave corner lifts out with everything in it: shingle courses, a vent pipe and its boot, underlayment, deck, soffit vent and gutter. It is cut from the same roof and never changes shape.</p>
+        <p class="note">Illustration of how each layer works. Not a product test.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/stills-desktop/panel.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: the corner section lifted forward from the roof, showing shingle courses, a vent pipe with its boot, a dark underlayment band, a tan deck band and the gutter along its lower edge."></div>
+        <div class="frame f-port"><img src="media/stills-portrait/panel.webp" width="864" height="1080" loading="lazy" decoding="async" alt="Illustration: the corner section lifted forward from the roof, showing shingle courses, a vent pipe with its boot, a dark underlayment band, a tan deck band and the gutter along its lower edge."></div>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-heat" data-ch="heat" data-f0="165" data-f1="195" style="--len:100;--len-m:58" aria-labelledby="h-heat">
+      <div class="card">
+        <span class="kicker"><span class="n">03</span> · Summer</span>
+        <h2 id="h-heat" class="display cond">Heat</h2>
+        <ul class="points">
+          <li>Reflective granules send part of the sunlight back. Duration COOL in Oyster Shell carries a Cool Roof Rating Council listing (CRRC 0890-0012, per Owens Corning).</li>
+          <li>The sun's heat softens the sealant strip under each shingle, bonding it to the one below.</li>
+          <li>Attic air comes in at the soffit and carries heat out near the ridge.</li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/stills-desktop/heat.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: the corner section under high summer sun, with drawn arrows for incoming and reflected sunlight, the sealant line, and attic air moving up under the deck.">
+          <!--gen:ov:heat:desk--><svg class="ov" data-ov="heat" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false"><line class="sun draw" pathLength="100" x1="758.9" y1="120.7" x2="870.9" y2="390.7"/><g class="fade"><path class="head c-sun" d="M870.9 390.7L862.7 383.4L871.5 379.7Z"/></g><line class="sun-back fade" x1="870.9" y1="390.7" x2="998.9" y2="210.7"/><line class="sun draw" pathLength="100" x1="950.1" y1="187.1" x2="1062.1" y2="457.1"/><g class="fade"><path class="head c-sun" d="M1062.1 457.1L1053.9 449.8L1062.7 446.1Z"/></g><line class="sun-back fade" x1="1062.1" y1="457.1" x2="1190.1" y2="277.1"/><line class="sun draw" pathLength="100" x1="1080.3" y1="191.6" x2="1192.3" y2="461.6"/><g class="fade"><path class="head c-sun" d="M1192.3 461.6L1184.1 454.3L1192.9 450.6Z"/></g><line class="sun-back fade" x1="1192.3" y1="461.6" x2="1320.3" y2="281.6"/><line class="hot draw" pathLength="100" x1="843.7" y1="458.5" x2="1115" y2="296.3"/><polyline class="air flow" points="1149.9,744.8 1130.7,663.8 932.3,605.4 764.5,121.9 723.7,120 667.7,66"/><path class="head c-air" d="M667.7 66L679.1 69.7L671.8 77.2Z"/></svg><!--/gen--></div>
+        <div class="frame f-port"><img src="media/stills-portrait/heat.webp" width="864" height="1080" loading="lazy" decoding="async" alt="Illustration: the corner section under high summer sun, with drawn arrows for incoming and reflected sunlight, the sealant line, and attic air moving up under the deck.">
+          <!--gen:ov:heat:port--><svg class="ov" data-ov="heat" viewBox="0 0 864 1080" preserveAspectRatio="none" aria-hidden="true" focusable="false"><line class="sun draw" pathLength="100" x1="315.9" y1="207.6" x2="376.4" y2="531.6"/><g class="fade"><path class="head c-sun" d="M376.4 531.6L369.8 522.7L379.2 521Z"/></g><line class="sun-back fade" x1="376.4" y1="531.6" x2="445.5" y2="315.6"/><line class="sun draw" pathLength="100" x1="437.4" y1="251.1" x2="497.8" y2="575.1"/><g class="fade"><path class="head c-sun" d="M497.8 575.1L491.3 566.2L500.7 564.5Z"/></g><line class="sun-back fade" x1="497.8" y1="575.1" x2="567" y2="359.1"/><line class="sun draw" pathLength="100" x1="523.8" y1="253" x2="584.2" y2="577"/><g class="fade"><path class="head c-sun" d="M584.2 577L577.7 568.2L587.1 566.4Z"/></g><line class="sun-back fade" x1="584.2" y1="577" x2="653.4" y2="361"/><line class="hot draw" pathLength="100" x1="354.1" y1="577.6" x2="545.6" y2="463.8"/><polyline class="air flow" points="546.7,798.9 536.3,701.7 402.5,675 325.7,346.4 302.1,341.2 271.9,276.4"/><path class="head c-air" d="M271.9 276.4L280.8 283.7L271.7 287.9Z"/></svg><!--/gen--></div>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-wind" data-ch="wind" data-f0="195" data-f1="225" style="--len:100;--len-m:58" aria-labelledby="h-wind">
+      <div class="card">
+        <span class="kicker"><span class="n">04</span> · Santa Ana season</span>
+        <h2 id="h-wind" class="display cond">Wind</h2>
+        <ul class="points">
+          <li>Santa Ana winds blow off the inland deserts, mostly between fall and spring.</li>
+          <li>The bond the summer sun set is where most of a shingle's wind resistance comes from.</li>
+          <li>Nails sit in the nailing zone, hidden under the next course. A starter course seals the first edge at the eave.</li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/stills-desktop/wind.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: the corner section in low, clear autumn light, with drawn airflow lines crossing it, the hidden nail line, and the sealed starter edge at the eave.">
+          <!--gen:ov:wind:desk--><svg class="ov" data-ov="wind" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline class="air flow" points="1178.1,794.1 1082.1,709.5 932.5,529.9 723.8,279.6 643.8,247.2"/><polyline class="dust flow" points="1178.1,794.1 1082.1,709.5 932.5,529.9 723.8,279.6 643.8,247.2"/><path class="head c-air" d="M643.8 247.2L654.8 246.5L651.2 255.4Z"/><polyline class="air flow" points="1261.6,727.9 1165.6,643.3 1020.6,471.9 818.2,232.5 738.2,200.1"/><polyline class="dust flow" points="1261.6,727.9 1165.6,643.3 1020.6,471.9 818.2,232.5 738.2,200.1"/><path class="head c-air" d="M738.2 200.1L749.2 199.4L745.6 208.2Z"/><polyline class="air flow" points="1338.6,666.8 1242.6,582.2 1102.1,418.2 905.4,188.7 825.4,156.3"/><polyline class="dust flow" points="1338.6,666.8 1242.6,582.2 1102.1,418.2 905.4,188.7 825.4,156.3"/><path class="head c-air" d="M825.4 156.3L836.4 155.6L832.8 164.5Z"/><polyline class="air flow" points="1409.9,610.3 1313.9,525.7 1177.4,368.5 986.4,148.2 906.4,115.8"/><polyline class="dust flow" points="1409.9,610.3 1313.9,525.7 1177.4,368.5 986.4,148.2 906.4,115.8"/><path class="head c-air" d="M906.4 115.8L917.4 115.1L913.8 124Z"/><line class="edge draw" pathLength="100" x1="1052" y1="746.9" x2="1329.4" y2="526.8"/><line class="nails fade" x1="912.3" y1="541" x2="1177.4" y2="368"/><line class="hot" x1="843.7" y1="458.5" x2="1115" y2="296.3"/></svg><!--/gen--></div>
+        <div class="frame f-port"><img src="media/stills-portrait/wind.webp" width="864" height="1080" loading="lazy" decoding="async" alt="Illustration: the corner section in low, clear autumn light, with drawn airflow lines crossing it, the hidden nail line, and the sealed starter edge at the eave.">
+          <!--gen:ov:wind:port--><svg class="ov" data-ov="wind" viewBox="0 0 864 1080" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline class="air flow" points="543.2,840.1 491.4,738.6 406.2,618.9 286.6,450.7 243.4,411.8"/><polyline class="dust flow" points="543.2,840.1 491.4,738.6 406.2,618.9 286.6,450.7 243.4,411.8"/><path class="head c-air" d="M243.4 411.8L254 414.9L247.6 422Z"/><polyline class="air flow" points="603.2,795.5 551.3,694 468.4,579 351.7,417.2 308.5,378.3"/><polyline class="dust flow" points="603.2,795.5 551.3,694 468.4,579 351.7,417.2 308.5,378.3"/><path class="head c-air" d="M308.5 378.3L319.1 381.4L312.7 388.5Z"/><polyline class="air flow" points="659.1,753.8 607.2,652.3 526.3,541.6 412.6,385.8 369.4,346.9"/><polyline class="dust flow" points="659.1,753.8 607.2,652.3 526.3,541.6 412.6,385.8 369.4,346.9"/><path class="head c-air" d="M369.4 346.9L379.9 350L373.5 357.1Z"/><polyline class="air flow" points="711.3,715 659.5,613.4 580.6,506.7 469.6,356.5 426.4,317.6"/><polyline class="dust flow" points="711.3,715 659.5,613.4 580.6,506.7 469.6,356.5 426.4,317.6"/><path class="head c-air" d="M426.4 317.6L436.9 320.7L430.5 327.8Z"/><line class="edge draw" pathLength="100" x1="470.4" y1="769.3" x2="671.5" y2="619.7"/><line class="nails fade" x1="393.2" y1="632.8" x2="581.7" y2="512.7"/><line class="hot" x1="354.1" y1="577.6" x2="545.6" y2="463.8"/></svg><!--/gen--></div>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-rain" data-ch="rain" data-f0="225" data-f1="280" style="--len:110;--len-m:62" aria-labelledby="h-rain">
+      <div class="card">
+        <span class="kicker"><span class="n">05</span> · Winter storms</span>
+        <h2 id="h-rain" class="display cond">Rain</h2>
+        <ul class="points">
+          <li>Each course overlaps the one below, so water runs onto the next shingle, not behind it.</li>
+          <li>Around the vent pipe, a flashing boot sheds water past the opening.</li>
+          <li>At the eave, water leaves over the drip edge into the gutter. Underneath, the underlayment is a second barrier.</li>
+          <li>Then the storm clears and the gutter drains.</li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/stills-desktop/rain.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: the corner section in grey rain light with its shingles darkened by water, drawn water paths running down the courses, around the vent boot, over the drip edge and into the gutter.">
+          <!--gen:ov:rain:desk--><svg class="ov" data-ov="rain" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false"><line class="drop flow" x1="743.2" y1="0" x2="775.2" y2="353.7"/><line class="drop flow" x1="900.5" y1="164.5" x2="932.5" y2="542.5"/><line class="drop flow" x1="787.7" y1="0" x2="819.7" y2="329.8"/><line class="drop flow" x1="942.9" y1="136.6" x2="974.9" y2="514.6"/><line class="drop flow" x1="836" y1="0" x2="868" y2="303.9"/><line class="drop flow" x1="988.6" y1="106.5" x2="1020.6" y2="484.5"/><line class="drop flow" x1="879.7" y1="0" x2="911.7" y2="280.4"/><line class="drop flow" x1="1030.1" y1="79.1" x2="1062.1" y2="457.1"/><line class="drop flow" x1="921.8" y1="0" x2="953.8" y2="257.8"/><line class="drop flow" x1="1070.1" y1="52.8" x2="1102.1" y2="430.8"/><line class="drop flow" x1="964.8" y1="0" x2="996.8" y2="234.8"/><line class="drop flow" x1="1110.7" y1="26" x2="1142.7" y2="404"/><line class="drop flow" x1="1001.4" y1="0" x2="1033.4" y2="215.1"/><line class="drop flow" x1="1145.4" y1="3.1" x2="1177.4" y2="381.1"/><polyline class="water flow" points="723.8,292.2 775.2,353.7 827,416 879.5,478.9 932.5,542.5 986.2,607 1040.5,672 1082.1,722.1"/><polyline class="water flow" points="769.1,269.6 819.7,329.8 870.9,390.7 922.6,452.3 974.9,514.6 1027.7,577.6 1081.1,641.3 1122.2,690.2"/><polyline class="water flow" points="818.2,245.1 868,303.9 918.2,363.4 969.1,423.6 1020.6,484.5 1072.6,546 1125.3,608.2 1165.6,655.9"/><polyline class="water flow" points="905.4,201.3 953.8,257.8 1002.7,314.9 1052.2,372.5 1102.1,430.8 1152.5,489.7 1203.5,549.2 1242.6,594.8"/><polyline class="water flow" points="949.1,179.6 996.8,234.8 1045,290.6 1093.6,347 1142.7,404 1192.3,461.6 1242.6,519.8 1281.1,564.4"/><polyline class="water flow" points="986.4,160.8 1033.4,215.1 1081,269.8 1129,325.2 1177.4,381.1 1226.6,437.6 1276,494.6 1313.9,538.3"/><polyline class="water flow" points="862.6,222.8 914.6,321.3 1011.5,397.6 1113.3,517.3 1204.8,624.8"/><polyline class="water flow" points="862.6,222.8 957.5,298.3 1011.5,397.6 1113.3,517.3 1204.8,624.8"/><line class="water draw" pathLength="100" x1="1122.2" y1="690.2" x2="1114.1" y2="737.3"/><g class="fade"><path class="head c-water" d="M1114.1 737.3L1111.6 728.7L1119.3 730Z"/></g><line class="water draw" pathLength="100" x1="1204.8" y1="624.8" x2="1198.2" y2="669"/><g class="fade"><path class="head c-water" d="M1198.2 669L1195.5 660.4L1203.2 661.5Z"/></g><line class="water draw" pathLength="100" x1="1281.1" y1="564.4" x2="1282.3" y2="600.6"/><g class="fade"><path class="head c-water" d="M1282.3 600.6L1278.1 592.7L1285.9 592.4Z"/></g><line class="water flow" x1="1324.3" y1="566.5" x2="1008.9" y2="822.7"/><g class="fade"><path class="head c-water" d="M1008.9 822.7L1014 811.9L1020.6 820Z"/></g><line class="band fade" x1="707" y1="235.5" x2="927.6" y2="125.2"/></svg><!--/gen--></div>
+        <div class="frame f-port"><img src="media/stills-portrait/rain.webp" width="864" height="1080" loading="lazy" decoding="async" alt="Illustration: the corner section in grey rain light with its shingles darkened by water, drawn water paths running down the courses, around the vent boot, over the drip edge and into the gutter.">
+          <!--gen:ov:rain:port--><svg class="ov" data-ov="rain" viewBox="0 0 864 1080" preserveAspectRatio="none" aria-hidden="true" focusable="false"><line class="drop flow" x1="298.8" y1="53.7" x2="316.1" y2="507.3"/><line class="drop flow" x1="388.9" y1="180.5" x2="406.2" y2="634.1"/><line class="drop flow" x1="329.6" y1="36.8" x2="346.9" y2="490.4"/><line class="drop flow" x1="418.7" y1="161.2" x2="436" y2="614.8"/><line class="drop flow" x1="363.2" y1="18.6" x2="380.5" y2="472.2"/><line class="drop flow" x1="451.1" y1="140.5" x2="468.4" y2="594.1"/><line class="drop flow" x1="393.8" y1="1.9" x2="411.1" y2="455.5"/><line class="drop flow" x1="480.6" y1="121.5" x2="497.8" y2="575.1"/><line class="drop flow" x1="423.4" y1="0" x2="440.6" y2="439.5"/><line class="drop flow" x1="509.1" y1="103.1" x2="526.3" y2="556.7"/><line class="drop flow" x1="453.7" y1="0" x2="471" y2="422.9"/><line class="drop flow" x1="538.3" y1="84.5" x2="555.6" y2="538.1"/><line class="drop flow" x1="479.7" y1="0" x2="497" y2="408.7"/><line class="drop flow" x1="563.3" y1="68.3" x2="580.6" y2="521.9"/><polyline class="water flow" points="286.6,465.8 316.1,507.3 345.9,549.2 375.8,591.4 406.2,634.1 436.8,677.1 467.7,720.5 491.4,753.7"/><polyline class="water flow" points="317.8,449.7 346.9,490.4 376.4,531.6 406,573 436,614.8 466.2,657.1 496.7,699.7 520,732.3"/><polyline class="water flow" points="351.7,432.3 380.5,472.2 409.5,512.5 438.8,553.1 468.4,594.1 498.2,635.4 528.2,677.2 551.3,709.1"/><polyline class="water flow" points="412.6,400.9 440.6,439.5 469,478.2 497.6,517.3 526.3,556.7 555.5,596.6 584.8,636.8 607.2,667.4"/><polyline class="water flow" points="443.2,385.1 471,422.9 498.9,460.9 527.1,499.3 555.6,538.1 584.2,577 613.2,616.5 635.3,646.6"/><polyline class="water flow" points="469.6,371.6 497,408.7 524.6,446.1 552.5,483.8 580.6,521.9 608.9,560.3 637.5,599 659.5,628.6"/><polyline class="water flow" points="382.7,416.3 410.1,483.6 468.6,534.9 527.3,615.7 579.7,688"/><polyline class="water flow" points="382.7,416.3 440.2,467.3 468.6,534.9 527.3,615.7 579.7,688"/><line class="water draw" pathLength="100" x1="520" y1="732.3" x2="514.1" y2="759.6"/><g class="fade"><path class="head c-water" d="M514.1 759.6L512 750.8L519.7 752.5Z"/></g><line class="water draw" pathLength="100" x1="579.7" y1="688" x2="575" y2="713.4"/><g class="fade"><path class="head c-water" d="M575 713.4L572.7 704.8L580.4 706.2Z"/></g><line class="water draw" pathLength="100" x1="635.3" y1="646.6" x2="635.9" y2="667.3"/><g class="fade"><path class="head c-water" d="M635.9 667.3L631.8 659.3L639.6 659.1Z"/></g><line class="water flow" x1="666.4" y1="644.2" x2="438" y2="817.3"/><g class="fade"><path class="head c-water" d="M438 817.3L443.4 806.6L449.7 814.9Z"/></g><line class="band fade" x1="279.5" y1="426.1" x2="433.3" y2="347"/></svg><!--/gen--></div>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-return" data-ch="return" data-f0="280" data-f1="330" style="--len:70;--len-m:42" aria-labelledby="h-return">
+      <div class="card">
+        <span class="kicker"><span class="n">06</span> · Return</span>
+        <h2 id="h-return">Back to the exact spot.</h2>
+        <p>The panel travels the same path home and lands where it started, carrying what it showed back into the roof.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/stills-desktop/return.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: the corner section back in its original place at the eave, with the other layers still lifted above the house."></div>
+        <div class="frame f-port"><img src="media/stills-portrait/return.webp" width="864" height="1080" loading="lazy" decoding="async" alt="Illustration: the corner section back in its original place at the eave, with the other layers still lifted above the house."></div>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-reassembly" data-ch="reassembly" data-f0="330" data-f1="405" style="--len:110;--len-m:62;--hold:45" aria-labelledby="h-reassembly">
+      <div class="card">
+        <span class="kicker"><span class="n">07</span> · Reassembly</span>
+        <h2 id="h-reassembly" class="display">Every layer. Working together.</h2>
+        <p>Deck, drip edge, underlayment, shingles, then the caps. The last ridge cap closes the roof.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/stills-desktop/reassembly.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: the finished roof again with every layer closed, seen from further back."></div>
+        <div class="frame f-port"><img src="media/stills-portrait/reassembly.webp" width="864" height="1080" loading="lazy" decoding="async" alt="Illustration: the finished roof again with every layer closed, seen from further back."></div>
+      </figure>
+    </section>
+  </div>
+</section>
+
+<section class="section" id="proof" tabindex="-1" aria-labelledby="h-proof">
+  <header>
+    <span class="kicker"><span class="n">08</span> · Proof</span>
+    <h2 id="h-proof">What can be checked today.</h2>
+    <p>Only facts verified from public records, each dated. Project photos and reviews wait for the owner's permission.</p>
+  </header>
+  <dl class="facts">
+    <div class="fact">
+      <dt>Contractor license</dt>
+      <dd class="big">CSLB #1084651</dd>
+      <dd>C39 Roofing · Active through Dec 31, 2027</dd>
+      <dd class="src">Checked at cslb.ca.gov on Sep 30, 2026 · <a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/CheckLicense.aspx" rel="noopener">Look up a license</a></dd>
+    </div>
+    <div class="fact">
+      <dt>Bond</dt>
+      <dd class="big">On file</dd>
+      <dd>Contractor's bond on file with the CSLB.</dd>
+      <dd class="src">Checked at cslb.ca.gov on Sep 30, 2026</dd>
+    </div>
+    <div class="fact">
+      <dt>Ratings, as of Sep 30, 2026</dt>
+      <dd class="rating"><b>5.0</b><span>Google · 58 reviews</span><b>4.7</b><span>Thumbtack · 223 reviews</span><b>3.7</b><span>Yelp · 3 reviews</span></dd>
+      <dd class="src">Every platform shown, including the lowest.</dd>
+    </div>
+    <div class="fact">
+      <dt>Roof system in this illustration</dt>
+      <dd>Modeled on Owens Corning Duration COOL, Oyster Shell: the product and color named in JM Roofing's own project posts.</dd>
+      <dd><span class="tag">Pending owner confirmation</span></dd>
+    </div>
+  </dl>
+  <h3 class="sr-only">Project and review slots waiting for owner assets</h3>
+  <div class="slots">
+    <div class="slot"><span class="tag">Owner asset required</span><h3>City of Bell reroof · Duration COOL, Oyster Shell</h3><p>Needed: full-resolution original, homeowner consent, month and year.</p></div>
+    <div class="slot"><span class="tag">Owner asset required</span><h3>4-unit new-construction roof · Duration, Oyster Shell</h3><p>Needed: drone original and written permission.</p></div>
+    <div class="slot"><span class="tag">Owner asset required</span><h3>Shasta White shingles with a Polyfresko G flat section</h3><p>Needed: before and after originals, homeowner consent.</p></div>
+    <div class="slot"><span class="tag">Owner asset required</span><h3>Customer review</h3><p>Needed: the reviewer's permission, or the platform's own embed.</p></div>
+  </div>
+</section>
+
+<section class="section final" id="final" aria-labelledby="h-final">
+  <div class="frame shot-final"><picture>
+    <source media="(max-width: 767.98px)" srcset="media/stills-portrait/reassembly.webp">
+    <img src="media/stills-desktop/reassembly.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: the finished roof, every layer closed.">
+  </picture></div>
+  <div class="final-copy">
+  <h2 id="h-final" class="display">Built for everything.</h2>
+  <div class="actions">
+    <a class="btn" href="#estimate">Get an estimate now <svg class="arr" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v11M2 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    <span class="tag concept">Concept line · needs owner and legal approval before launch</span>
+  </div>
+  </div>
+</section>
+
+<section class="section" id="estimate" aria-labelledby="h-estimate">
+  <div class="estimate">
+    <header>
+      <span class="kicker"><span class="n">09</span> · Estimate</span>
+      <h2 id="h-estimate">Get an estimate.</h2>
+      <p class="notice" id="form-note"><strong>Concept preview.</strong> This form is not active and sends nothing.</p>
+      <p>Or call <span class="mono">(323) 245-9154</span>.</p>
+    </header>
+    <form method="dialog" aria-describedby="form-note" novalidate>
+      <div class="row"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="row"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+      <div class="row"><label for="f-zip">ZIP code</label><input id="f-zip" name="zip" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" required></div>
+      <div class="row"><label for="f-need">What's going on?</label>
+        <select id="f-need" name="need"><option>Replace my roof</option><option>A leak</option><option>A repair</option><option>Not sure yet</option></select></div>
+      <button class="btn" type="submit">Get an estimate now</button>
+      <p class="status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<div class="action-bar">
+  <span class="ph"><small>Phone</small>(323) 245-9154</span>
+  <a class="btn" href="#estimate">Get an estimate now</a>
+</div>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p class="lic-line">JM Roofing 3rd Generation · CSLB Lic. #1084651 (C39 Roofing) · Los Angeles, CA</p>
+    <p>Unofficial concept by Lumera Creative. Not affiliated with or approved by JM Roofing 3rd Generation.</p>
+    <p>Illustrations are proxy renders by Lumera Creative, not photos of JM Roofing projects. Conceptual; not construction guidance.</p>
+    <p>Owens Corning, Duration and TruDefinition are trademarks of Owens Corning. No endorsement implied. License, bond and ratings checked Sep 30, 2026.</p>
+  </div>
+</footer>
+<script type="application/json" id="roof-meta">{"stills":{"desktop":{"opening":0,"anatomy":110,"panel":165,"heat":192,"wind":222,"rain":256,"return":330,"reassembly":405},"portrait":{"opening":0,"anatomy":110,"panel":165,"heat":192,"wind":222,"rain":256,"return":330,"reassembly":405}},"bg":{"desktop":{"anatomy":"#e3e1db","heat":"#ddd1bf","opening":"#e2e1db","panel":"#ddd1bf","rain":"#b9bcbd","reassembly":"#e3e4e1","return":"#e3e4e1","wind":"#bfbdba"},"portrait":{"anatomy":"#e2e1db","heat":"#d5c9b7","opening":"#e2e1db","panel":"#d5c9b7","rain":"#b7b9b9","reassembly":"#e3e4e1","return":"#e3e3e1","wind":"#c3c0bb"}},"timeline":{"opening":[0,0],"anatomy":[0,112],"panel":[112,165],"heat":[165,195],"wind":[195,225],"rain":[225,280],"return":[280,330],"reassembly":[330,405]},"lock":395}</script>
+<script src="sequence.js" defer></script>
+</body>
+</html>

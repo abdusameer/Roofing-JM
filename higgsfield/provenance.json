@@ -1,0 +1,50 @@
+{
+  "phase": "2B - Claude Creative + Higgsfield roof experience",
+  "generated": "2026-10-01",
+  "account": "already-authorized Higgsfield account (CLI; no Higgsfield MCP connector was attached to this session)",
+  "credits": { "before": 574.5, "after": 527.75, "estimated": 46.75, "actual": 46.75 },
+  "status": "AI-generated concept visualization. Not a photo or video of JM Roofing work, not a product test, not documented product performance.",
+  "references": {
+    "A": { "file": "higgsfield/references/reference-a-four-panel.webp", "role": "source of truth for realism, material, house, camera, light, anatomy, rain, campaign quality",
+           "crops": ["references/ref-a-panel1-completed.png", "references/ref-a-panel2-anatomy.png", "references/ref-a-panel3-rain.png"] },
+    "B": { "role": "negative reference (Phase 1 grey floating slab); not used as a generation input" }
+  },
+  "masters": [
+    { "name": "roof-complete-master", "job": "a180b80f-eeae-4f58-9d5f-2f623236087e", "model": "gpt_image_2_5", "params": "16:9, 2k, quality high",
+      "inputs": ["references/ref-a-panel1-completed.png"], "cost": 2.75, "size": "2688x1520",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JHxX1zcBmn0y6Z4phVmSSseECc/hf_20261001_152725_a180b80f-eeae-4f58-9d5f-2f623236087e.png",
+      "local": "higgsfield/masters/roof-complete-master.png" },
+    { "name": "roof-exploded-master", "job": "3dad84a7-378b-4992-8862-4ce16e9ea732", "model": "gpt_image_2_5", "params": "16:9, 2k, quality high",
+      "inputs": ["masters/roof-complete-master.png (primary)", "references/ref-a-panel2-anatomy.png (style)"], "cost": 2.75, "size": "2688x1520",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JHxX1zcBmn0y6Z4phVmSSseECc/hf_20261001_152832_3dad84a7-378b-4992-8862-4ce16e9ea732.png",
+      "local": "higgsfield/masters/roof-exploded-master.png" },
+    { "name": "proof-panel-isolated-master", "job": "b074a36f-2cdf-42c9-b6db-486d89ecf192", "model": "gpt_image_2_5", "params": "16:9, 2k, quality high",
+      "inputs": ["masters/roof-exploded-master.png (primary)", "references/ref-a-panel3-rain.png (sample construction)"], "cost": 2.75, "size": "2688x1520",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JHxX1zcBmn0y6Z4phVmSSseECc/hf_20261001_152946_b074a36f-2cdf-42c9-b6db-486d89ecf192.png",
+      "local": "higgsfield/masters/proof-panel-isolated-master.png" }
+  ],
+  "clips": [
+    { "name": "clip A - anatomy separation", "job": "8382f5c5-c0a9-4d76-9c21-727fcdc338e7", "model": "kling3_0", "params": "pro (1080p), 5 s, 16:9, sound off",
+      "start": "roof-complete-master", "end": "roof-exploded-master", "cost": 8.75, "frames": 121, "size": "1912x1080 @ 24 fps", "retry_used": false,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JHxX1zcBmn0y6Z4phVmSSseECc/hf_20261001_153106_8382f5c5-c0a9-4d76-9c21-727fcdc338e7.mp4",
+      "local": "higgsfield/clips/clip-a-anatomy.mp4" },
+    { "name": "clip B - panel isolation", "job": "80a62786-5f9e-44cc-90d8-a3a0158b060a", "model": "kling3_0", "params": "pro (1080p), 5 s, 16:9, sound off",
+      "start": "roof-exploded-master", "end": "proof-panel-isolated-master", "cost": 8.75, "frames": 121, "size": "1912x1080 @ 24 fps",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JHxX1zcBmn0y6Z4phVmSSseECc/hf_20261001_153408_80a62786-5f9e-44cc-90d8-a3a0158b060a.mp4",
+      "local": "higgsfield/clips/clip-b-panel.mp4" },
+    { "name": "clip C - weather (calm, heat, wind, rain, clear)", "job": "91d5d110-2b84-4ed0-ab62-3fce1d0a88bd", "model": "kling3_0", "params": "pro (1080p), 12 s, 16:9, sound off",
+      "start": "proof-panel-isolated-master", "end": "proof-panel-isolated-master", "cost": 21, "frames": 289, "size": "1912x1080 @ 24 fps",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JHxX1zcBmn0y6Z4phVmSSseECc/hf_20261001_153709_91d5d110-2b84-4ed0-ab62-3fce1d0a88bd.mp4",
+      "local": "higgsfield/clips/clip-c-weather.mp4",
+      "defect": "rain beat renders as storm light and darkened shingles only: no visible falling drops, splashes, runoff or drip-edge water" }
+  ],
+  "not_generated": {
+    "return_and_reassembly": "by design: clip B and clip A frames played in reverse",
+    "mobile_portrait_set": "held: the desktop proof did not fully pass (clip C rain); phones show the full 16:9 frames uncropped meanwhile"
+  },
+  "web": {
+    "build": "python3 tools/build_media_hf.py --frames $TMPDIR/hf-frames",
+    "frames_extracted": "$TMPDIR/hf-frames/{a,b,c}/NNNN.png (121 / 121 / 289, outside iCloud)",
+    "manifest": "prototype/roof-sequence/media/hf/manifest.json"
+  }
+}

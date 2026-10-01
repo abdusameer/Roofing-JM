@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roof Sequence · JM Roofing concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Unofficial Lumera Creative concept prototype: one roof, its layers, and how each layer handles Los Angeles heat, wind and rain.">
+<meta name="theme-color" content="#e3e1db">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Cpath d=%22M1 9 8 3l7 6v1H1z%22 fill=%22%231b1a18%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="preload" as="image" href="media/hf-stills/desktop/poster.webp" media="(min-width: 1024px) and (min-height: 600px)" fetchpriority="high">
+<link rel="preload" as="image" href="media/hf-stills/mobile/poster.webp" media="(max-width: 1023.98px), (max-height: 599.98px)" fetchpriority="high">
+<script>
+/* Tier gate before first paint (no layout shift). Re-evaluated live by sequence.js. */
+(function () {
+  var d = document.documentElement, q = new URLSearchParams(location.search).get("tier");
+  function mm(s) { return window.matchMedia(s).matches; }
+  function pick() {
+    if (/^(static|reduced|desktop|mobile)$/.test(q || "")) return q;
+    if (mm("(prefers-reduced-motion: reduce)")) return "reduced";
+    var c = navigator.connection;
+    if (c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || ""))) return "static";
+    if ((navigator.deviceMemory && navigator.deviceMemory <= 1) || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2)) return "static";
+    if (mm("(orientation: landscape) and (pointer: coarse) and (max-height: 540px)")) return "static";
+    if (mm("(min-width: 1024px) and (min-height: 600px)") && !mm("(pointer: coarse)")) return "desktop";
+    return "mobile";
+  }
+  window.__roofTier = pick;
+  d.className = "js tier-" + pick();
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#proof">Skip the roof sequence</a>
+<p class="concept-bar" role="note">Unofficial concept by Lumera Creative. Not affiliated with or approved by JM Roofing 3rd Generation.</p>
+
+<header class="site-header">
+  <a class="brand" href="#top"><b>JM Roofing 3rd Generation</b><span class="lic">CSLB Lic. #1084651 · C39 Roofing</span></a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#sequence">The roof</a>
+    <a href="#proof">Proof</a>
+    <a href="#estimate">Estimate</a>
+  </nav>
+  <span class="hdr-phone"><span class="sr-only">Phone: </span>(323) 245-9154</span>
+  <details class="menu">
+    <summary aria-label="Menu">Menu</summary>
+    <nav aria-label="Primary (mobile)">
+      <a href="#sequence">The roof</a>
+      <a href="#ch-anatomy">Anatomy</a>
+      <a href="#ch-heat">Heat</a>
+      <a href="#ch-wind">Wind</a>
+      <a href="#ch-rain">Rain</a>
+      <a href="#proof">Proof</a>
+      <a href="#estimate">Estimate</a>
+      <hr>
+      <span class="mono" style="display:block;padding:8px 12px;font-size:.8rem">Phone (323) 245-9154</span>
+    </nav>
+  </details>
+  <a class="btn" href="#estimate">Get an estimate now</a>
+</header>
+
+<main id="top">
+<section class="sequence" id="sequence" aria-label="How one roof works">
+  <!-- Decorative stage: one canvas showing a prerendered image sequence (generated concept visualization). Every fact it shows is
+       repeated in the chapter text below, which is what screen readers and the static tiers get. -->
+  <div class="stage" aria-hidden="true">
+    <div class="frame">
+      <img class="stage-poster" src="media/hf-stills/desktop/poster.webp" alt="Concept visualization: a single-story white stucco Southern California house with a hip roof of charcoal dimensional shingles, black gutters and palm trees in late-afternoon sun." width="1440" height="813" fetchpriority="high" decoding="async">
+      <canvas class="stage-canvas" width="1440" height="813"></canvas>
+      <div class="dots"></div>
+    </div>
+    <p class="stage-note note-illus">Concept visualization of how each layer works. Not a product test.</p>
+    <p class="cond-chip" data-c=""><i></i><span></span></p>
+  </div>
+
+  <a class="seq-skip" href="#proof">Skip the sequence ↓</a>
+  <nav class="rail" aria-label="Roof sequence chapters">
+    <ol>
+      <li><a href="#ch-opening"><span>Roof</span></a></li>
+      <li><a href="#ch-anatomy"><span>Anatomy</span></a></li>
+      <li><a href="#ch-panel"><span>Panel</span></a></li>
+      <li><a href="#ch-heat"><span>Heat</span></a></li>
+      <li><a href="#ch-wind"><span>Wind</span></a></li>
+      <li><a href="#ch-rain"><span>Rain</span></a></li>
+      <li><a href="#ch-return"><span>Return</span></a></li>
+      <li><a href="#ch-reassembly"><span>Together</span></a></li>
+      <li class="skip-seq"><a href="#proof"><span>Skip to proof</span></a></li>
+    </ol>
+  </nav>
+
+  <div class="chapters">
+    <p class="sr-only">This section follows one roof in eight steps: the finished roof, its layers lifted apart, one section taken out as a sample, that sample in summer heat, Santa Ana wind and winter rain, the sample going back the way it came, and the roof closing again. Each step is described in text; the moving picture only illustrates it.</p>
+
+    <section class="chapter" id="ch-opening" data-ch="opening" data-f0="0" data-f1="9" style="--n:10" aria-labelledby="h-opening">
+      <div class="card">
+        <span class="kicker">JM Roofing 3rd Generation · Los Angeles</span>
+        <h1 id="h-opening" class="display">Every layer has a job.</h1>
+        <p class="lede">Scroll beneath the surface.</p>
+        <p class="note">A generated concept visualization of a dimensional asphalt shingle roof. JM Roofing's own project posts name Owens Corning Duration COOL; the charcoal shingles shown here are illustrative, not a specific product. <span class="tag">Pending owner confirmation</span></p>
+        <div class="actions"><a class="btn" href="#estimate">Get an estimate now</a></div>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/hf-stills/desktop/poster.webp" width="1440" height="813" loading="lazy" decoding="async" alt="Concept visualization: a single-story white stucco Southern California house with a hip roof of charcoal dimensional shingles, black gutters and palm trees in late-afternoon sun."></div>
+        <div class="frame f-port"><img src="media/hf-stills/mobile/poster.webp" width="900" height="508" loading="lazy" decoding="async" alt="Concept visualization: a single-story white stucco Southern California house with a hip roof of charcoal dimensional shingles, black gutters and palm trees in late-afternoon sun."></div>
+        <figcaption>AI-generated concept visualization directed by Lumera Creative, not a photo of a JM Roofing project.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-anatomy" data-ch="anatomy" data-f0="10" data-f1="50" style="--n:41" aria-labelledby="h-anatomy">
+      <div class="card">
+        <span class="kicker"><span class="n">01</span> · Anatomy</span>
+        <h2 id="h-anatomy">Five layers, and the air under them.</h2>
+        <ol class="layers">
+          <li><span><b>Hip and ridge caps</b> close the lines where two slopes meet.</span></li>
+          <li><span><b>Laminated shingles</b> are the weather surface. Mineral granules shield the asphalt from the sun. A starter course seals the first edge at the eave.</span></li>
+          <li><span><b>Underlayment</b> is a second water barrier over the whole deck.</span></li>
+          <li><span><b>Drip edge</b> is metal at the eave that carries water off the deck edge. At the eave, the underlayment laps over it.</span></li>
+          <li><span><b>Roof deck</b> is the solid wood sheathing that holds the fasteners.</span></li>
+          <li class="ctx"><span><b>Roof framing</b> (the rafters) stays on the house and carries the deck.</span></li>
+        </ol>
+        <p class="note">Conceptual illustration, not construction guidance.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/hf-stills/desktop/anatomy.webp" width="1440" height="813" loading="lazy" decoding="async" alt="Concept visualization: the same roof with its layers lifted straight up and apart: charcoal shingles, dark underlayment, a metal drip edge and tan wood decking, above the exposed rafters."></div>
+        <div class="frame f-port"><img src="media/hf-stills/mobile/anatomy.webp" width="900" height="508" loading="lazy" decoding="async" alt="Concept visualization: the same roof with its layers lifted straight up and apart: charcoal shingles, dark underlayment, a metal drip edge and tan wood decking, above the exposed rafters."></div>
+        <figcaption>AI-generated concept visualization.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-panel" data-ch="panel" data-f0="51" data-f1="91" style="--n:41" aria-labelledby="h-panel">
+      <div class="card">
+        <span class="kicker"><span class="n">02</span> · The proof panel</span>
+        <h2 id="h-panel">One section, every layer.</h2>
+        <p>One section comes forward out of the lifted layers with everything in it: shingle courses, underlayment, the metal drip edge, the wood deck and the framing underneath. The opening it leaves stays in the roof.</p>
+        <p class="note">Concept visualization of how each layer works. Not a product test.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/hf-stills/desktop/panel.webp" width="1440" height="813" loading="lazy" decoding="async" alt="Concept visualization: one rectangular section of the roof, with shingles, drip edge, decking and framing, brought forward from the lifted layers, leaving a matching opening."></div>
+        <div class="frame f-port"><img src="media/hf-stills/mobile/panel.webp" width="900" height="508" loading="lazy" decoding="async" alt="Concept visualization: one rectangular section of the roof, with shingles, drip edge, decking and framing, brought forward from the lifted layers, leaving a matching opening."></div>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-heat" data-ch="heat" data-f0="92" data-f1="115" style="--n:24" aria-labelledby="h-heat">
+      <div class="card">
+        <span class="kicker"><span class="n">03</span> · Summer</span>
+        <h2 id="h-heat" class="display cond">Heat</h2>
+        <ul class="points">
+          <li>Reflective granules send part of the sunlight back. Duration COOL in Oyster Shell, the color in JM's posts, carries a Cool Roof Rating Council listing (CRRC 0890-0012, per Owens Corning).</li>
+          <li>The sun's heat softens the sealant strip under each shingle, bonding it to the one below.</li>
+          <li>Attic air comes in at the soffit and carries heat out near the ridge.</li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/hf-stills/desktop/heat.webp" width="1440" height="813" loading="lazy" decoding="async" alt="Concept visualization: the roof section in strong, warm sunlight."></div>
+        <div class="frame f-port"><img src="media/hf-stills/mobile/heat.webp" width="900" height="508" loading="lazy" decoding="async" alt="Concept visualization: the roof section in strong, warm sunlight."></div>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-wind" data-ch="wind" data-f0="116" data-f1="127" style="--n:12" aria-labelledby="h-wind">
+      <div class="card">
+        <span class="kicker"><span class="n">04</span> · Santa Ana season</span>
+        <h2 id="h-wind" class="display cond">Wind</h2>
+        <ul class="points">
+          <li>Santa Ana winds blow off the inland deserts, mostly between fall and spring.</li>
+          <li>The bond the summer sun set is where most of a shingle's wind resistance comes from.</li>
+          <li>Nails sit in the nailing zone, hidden under the next course. A starter course seals the first edge at the eave.</li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/hf-stills/desktop/wind.webp" width="1440" height="813" loading="lazy" decoding="async" alt="Concept visualization: clouds moving quickly over the roof section while it stays intact."></div>
+        <div class="frame f-port"><img src="media/hf-stills/mobile/wind.webp" width="900" height="508" loading="lazy" decoding="async" alt="Concept visualization: clouds moving quickly over the roof section while it stays intact."></div>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-rain" data-ch="rain" data-f0="128" data-f1="164" style="--n:37" aria-labelledby="h-rain">
+      <div class="card">
+        <span class="kicker"><span class="n">05</span> · Winter storms</span>
+        <h2 id="h-rain" class="display cond">Rain</h2>
+        <ul class="points">
+          <li>Each course overlaps the one below, so water runs onto the next shingle, not behind it.</li>
+          <li>Around the vent pipe, a flashing boot sheds water past the opening.</li>
+          <li>At the eave, water leaves over the drip edge into the gutter. Underneath, the underlayment is a second barrier.</li>
+          <li>Then the storm clears and the light returns.</li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/hf-stills/desktop/rain.webp" width="1440" height="813" loading="lazy" decoding="async" alt="Concept visualization: the roof section under a grey storm sky, its shingles darkened."></div>
+        <div class="frame f-port"><img src="media/hf-stills/mobile/rain.webp" width="900" height="508" loading="lazy" decoding="async" alt="Concept visualization: the roof section under a grey storm sky, its shingles darkened."></div>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-return" data-ch="return" data-f0="165" data-f1="205" style="--n:41" aria-labelledby="h-return">
+      <div class="card">
+        <span class="kicker"><span class="n">06</span> · Return</span>
+        <h2 id="h-return">Back to the exact spot.</h2>
+        <p>The section goes home along exactly the path it came out on: the same frames, played in reverse.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/hf-stills/desktop/return.webp" width="1440" height="813" loading="lazy" decoding="async" alt="Concept visualization: the roof section moving back toward its opening in the lifted layers."></div>
+        <div class="frame f-port"><img src="media/hf-stills/mobile/return.webp" width="900" height="508" loading="lazy" decoding="async" alt="Concept visualization: the roof section moving back toward its opening in the lifted layers."></div>
+      </figure>
+    </section>
+
+    <section class="chapter" id="ch-reassembly" data-ch="reassembly" data-f0="206" data-f1="256" style="--n:51" aria-labelledby="h-reassembly">
+      <div class="card">
+        <span class="kicker"><span class="n">07</span> · Reassembly</span>
+        <h2 id="h-reassembly" class="display">Every layer. Working together.</h2>
+        <p>Deck, drip edge, underlayment, then the shingles settle back into place, the same frames as the opening in reverse, ending on the finished roof.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame f-desk"><img src="media/hf-stills/desktop/reassembly.webp" width="1440" height="813" loading="lazy" decoding="async" alt="Concept visualization: the roof layers settling back down onto the house."></div>
+        <div class="frame f-port"><img src="media/hf-stills/mobile/reassembly.webp" width="900" height="508" loading="lazy" decoding="async" alt="Concept visualization: the roof layers settling back down onto the house."></div>
+      </figure>
+    </section>
+  </div>
+</section>
+
+<section class="section" id="proof" tabindex="-1" aria-labelledby="h-proof">
+  <header>
+    <span class="kicker"><span class="n">08</span> · Proof</span>
+    <h2 id="h-proof">What can be checked today.</h2>
+    <p>Only facts verified from public records, each dated. Project photos and reviews wait for the owner's permission.</p>
+  </header>
+  <dl class="facts">
+    <div class="fact">
+      <dt>Contractor license</dt>
+      <dd class="big">CSLB #1084651</dd>
+      <dd>C39 Roofing · Active through Dec 31, 2027</dd>
+      <dd class="src">Checked at cslb.ca.gov on Sep 30, 2026 · <a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/CheckLicense.aspx" rel="noopener">Look up a license</a></dd>
+    </div>
+    <div class="fact">
+      <dt>Bond</dt>
+      <dd class="big">On file</dd>
+      <dd>Contractor's bond on file with the CSLB.</dd>
+      <dd class="src">Checked at cslb.ca.gov on Sep 30, 2026</dd>
+    </div>
+    <div class="fact">
+      <dt>Ratings, as of Sep 30, 2026</dt>
+      <dd class="rating"><b>5.0</b><span>Google · 58 reviews</span><b>4.7</b><span>Thumbtack · 223 reviews</span><b>3.7</b><span>Yelp · 3 reviews</span></dd>
+      <dd class="src">Every platform shown, including the lowest.</dd>
+    </div>
+    <div class="fact">
+      <dt>Roof system in this visualization</dt>
+      <dd>A generated concept, not a product photo. JM Roofing's own project posts name Owens Corning Duration COOL in Oyster Shell; the charcoal shingles shown are illustrative.</dd>
+      <dd><span class="tag">Pending owner confirmation</span></dd>
+    </div>
+  </dl>
+  <h3 class="sr-only">Project and review slots waiting for owner assets</h3>
+  <div class="slots">
+    <div class="slot"><span class="tag">Owner asset required</span><h3>City of Bell reroof · Duration COOL, Oyster Shell</h3><p>Needed: full-resolution original, homeowner consent, month and year.</p></div>
+    <div class="slot"><span class="tag">Owner asset required</span><h3>4-unit new-construction roof · Duration, Oyster Shell</h3><p>Needed: drone original and written permission.</p></div>
+    <div class="slot"><span class="tag">Owner asset required</span><h3>Shasta White shingles with a Polyfresko G flat section</h3><p>Needed: before and after originals, homeowner consent.</p></div>
+    <div class="slot"><span class="tag">Owner asset required</span><h3>Customer review</h3><p>Needed: the reviewer's permission, or the platform's own embed.</p></div>
+  </div>
+</section>
+
+<section class="section final" id="final" aria-labelledby="h-final">
+  <div class="frame shot-final"><picture>
+    <source media="(max-width: 767.98px)" srcset="media/hf-stills/mobile/final.webp">
+    <img src="media/hf-stills/desktop/final.webp" width="1440" height="813" loading="lazy" decoding="async" alt="Concept visualization: the finished roof in late-afternoon sun, every layer closed.">
+  </picture></div>
+  <div class="final-copy">
+  <h2 id="h-final" class="display">Built for everything.</h2>
+  <div class="actions">
+    <a class="btn btn-signal" href="#estimate">Get an estimate now <svg class="arr" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v11M2 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    <span class="tag concept">Concept line · needs owner and legal approval before launch</span>
+  </div>
+  </div>
+</section>
+
+<section class="section" id="estimate" aria-labelledby="h-estimate">
+  <div class="estimate">
+    <header>
+      <span class="kicker"><span class="n">09</span> · Estimate</span>
+      <h2 id="h-estimate">Get an estimate.</h2>
+      <p class="notice" id="form-note"><strong>Concept preview.</strong> This form is not active and sends nothing.</p>
+      <p>Or call <span class="mono">(323) 245-9154</span>.</p>
+    </header>
+    <form method="dialog" aria-describedby="form-note" novalidate>
+      <div class="row"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="row"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+      <div class="row"><label for="f-zip">ZIP code</label><input id="f-zip" name="zip" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" required></div>
+      <div class="row"><label for="f-need">What's going on?</label>
+        <select id="f-need" name="need"><option>Replace my roof</option><option>A leak</option><option>A repair</option><option>Not sure yet</option></select></div>
+      <button class="btn" type="submit">Get an estimate now</button>
+      <p class="status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<div class="action-bar">
+  <span class="ph"><small>Phone</small>(323) 245-9154</span>
+  <a class="btn" href="#estimate">Get an estimate now</a>
+</div>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p class="lic-line">JM Roofing 3rd Generation · CSLB Lic. #1084651 (C39 Roofing) · Los Angeles, CA</p>
+    <p>Unofficial concept by Lumera Creative. Not affiliated with or approved by JM Roofing 3rd Generation.</p>
+    <p>The roof sequence is an AI-generated concept visualization (Higgsfield: GPT Image 2.5 stills, Kling 3.0 motion) directed by Lumera Creative. It is not a photo or video of JM Roofing projects, not a product test, and the weather shown does not demonstrate real roof performance. Conceptual; not construction guidance.</p>
+    <p>Owens Corning, Duration and TruDefinition are trademarks of Owens Corning. No endorsement implied. License, bond and ratings checked Sep 30, 2026.</p>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js" integrity="sha512-GJ07/MKsATTFk2vf2brRm9tZwqiLwN2YLl4nxWcrQi+l342DYlHYTZ4B2MxXALLoCgbR6r66UavcIcYhP/bxZg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js" integrity="sha512-AvCHixCY3eekc067srnfeRa1C43vMGB9iUshFKVwIiBixST2iHM6lJZS1SI400tahTSosf/jVPuEMLGJ4dJq8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+<script src="sequence.js" defer></script>
+</body>
+</html>

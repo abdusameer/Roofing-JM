@@ -1,0 +1,164 @@
+{
+ "fps": 24,
+ "last": 167,
+ "beats": {
+  "completed": [
+   0,
+   11
+  ],
+  "anatomy": [
+   12,
+   47
+  ],
+  "panel": [
+   48,
+   63
+  ],
+  "heat": [
+   64,
+   81
+  ],
+  "wind": [
+   82,
+   99
+  ],
+  "rain": [
+   100,
+   123
+  ],
+  "clear": [
+   124,
+   131
+  ],
+  "return": [
+   132,
+   145
+  ],
+  "reassembly": [
+   146,
+   159
+  ],
+  "hold": [
+   160,
+   167
+  ]
+ },
+ "chapters": [
+  {
+   "id": "opening",
+   "f0": 0,
+   "f1": 11,
+   "beats": [
+    "completed"
+   ]
+  },
+  {
+   "id": "anatomy",
+   "f0": 12,
+   "f1": 47,
+   "beats": [
+    "anatomy"
+   ]
+  },
+  {
+   "id": "panel",
+   "f0": 48,
+   "f1": 63,
+   "beats": [
+    "panel"
+   ]
+  },
+  {
+   "id": "heat",
+   "f0": 64,
+   "f1": 81,
+   "beats": [
+    "heat"
+   ]
+  },
+  {
+   "id": "wind",
+   "f0": 82,
+   "f1": 99,
+   "beats": [
+    "wind"
+   ]
+  },
+  {
+   "id": "rain",
+   "f0": 100,
+   "f1": 131,
+   "beats": [
+    "rain",
+    "clear"
+   ]
+  },
+  {
+   "id": "return",
+   "f0": 132,
+   "f1": 145,
+   "beats": [
+    "return"
+   ]
+  },
+  {
+   "id": "reassembly",
+   "f0": 146,
+   "f1": 167,
+   "beats": [
+    "reassembly",
+    "hold"
+   ]
+  }
+ ],
+ "conditions": [
+  {
+   "id": "heat",
+   "label": "Heat",
+   "f0": 64,
+   "f1": 81
+  },
+  {
+   "id": "wind",
+   "label": "Wind",
+   "f0": 82,
+   "f1": 99
+  },
+  {
+   "id": "rain",
+   "label": "Rain",
+   "f0": 100,
+   "f1": 131
+  }
+ ],
+ "illustrationNote": [
+  56,
+  131
+ ],
+ "markers": [
+  34,
+  50
+ ],
+ "stills": {
+  "poster": 0,
+  "anatomy": 47,
+  "panel": 63,
+  "heat": 76,
+  "wind": 94,
+  "rain": 118,
+  "return": 145,
+  "reassembly": 159,
+  "final": 167
+ },
+ "shutter": {
+  "default": 0.12,
+  "ranges": [
+   [
+    100,
+    131,
+    0.45
+   ]
+  ],
+  "why": "every frame can be a resting still when scrubbing: short shutter everywhere except rain, where motion blur draws the streaks"
+ }
+}

@@ -1,0 +1,10 @@
+# Raw renders, Blender backups and third-party evidence stay local.
+review/
+*.blend1
+*.blend
+.DS_Store
+qa/out/
+.claude/
+
+# the editable production master ships with the repo
+!blender/roof_master.blend
