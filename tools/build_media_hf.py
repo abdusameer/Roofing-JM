@@ -13,13 +13,13 @@ SITE = os.path.join(ROOT, "prototype/roof-sequence")
 HF = os.path.join(ROOT, "higgsfield")
 ap = argparse.ArgumentParser()
 ap.add_argument("--frames", required=True)
-ap.add_argument("--q", type=int, default=66); ap.add_argument("--q-mobile", type=int, default=64)
+ap.add_argument("--q", type=int, default=68); ap.add_argument("--q-mobile", type=int, default=64)
 a = ap.parse_args()
 
 SRC = {k: sorted(glob.glob(os.path.join(a.frames, k, "*.png"))) for k in ("a", "b", "c")}
 STEP = {"a": 3, "b": 3, "c": 4}           # every 3rd frame of A and B, every 4th of C (24 fps sources) keeps the payload in budget
 HOLD_OPEN, HOLD_END = 10, 10
-MASTER = os.path.join(HF, "masters/roof-complete-master.png")
+MASTER = os.path.join(HF, "v2/masters/roof-complete-master.png")   # 4K v2 masters
 
 # unique source images, in file order
 files = []                                 # (clip, source path)
@@ -92,16 +92,16 @@ man = {"version": 3, "generated": datetime.date.today().isoformat(),
 
 # desktop: every unique file, every step
 all_ids = sorted(set(tl))
-man["sequences"]["desktop"] = write_seq("desktop", 1440, 813, a.q, all_ids, list(range(len(tl))))
+man["sequences"]["desktop"] = write_seq("desktop", 1600, 900, a.q, all_ids, list(range(len(tl))))
 # mobile: fewer frames and a shorter scroll (every 2nd step, every boundary kept), the full 16:9 frame shown
 # uncropped until a separately composed portrait set exists
 msteps = sorted(set(list(range(0, len(tl), 2)) + [b for v in beats.values() for b in v]))
-man["sequences"]["mobile"] = write_seq("mobile", 900, 508, a.q_mobile, sorted(set(tl[s] for s in msteps)), msteps)
+man["sequences"]["mobile"] = write_seq("mobile", 960, 540, a.q_mobile, sorted(set(tl[s] for s in msteps)), msteps)
 
 STILLS = {"poster": 0, "anatomy": beats["anatomy"][1], "panel": beats["panel"][1], "heat": beats["heat"][1] - 2,
           "wind": (beats["wind"][0] + beats["wind"][1]) // 2, "rain": (beats["rain"][0] + beats["rain"][1]) // 2,
           "return": (beats["return"][0] + beats["return"][1]) // 2, "reassembly": (beats["reassembly"][0] + beats["reassembly"][1]) // 2, "final": LAST}
-for kind, (w, h, q) in {"desktop": (1440, 813, 80), "mobile": (900, 508, 78)}.items():
+for kind, (w, h, q) in {"desktop": (1600, 900, 82), "mobile": (960, 540, 78)}.items():
     man["stills"][kind] = {}
     d = os.path.join(SITE, "media/hf-stills", kind); os.makedirs(d, exist_ok=True)
     for name, step in STILLS.items():

@@ -236,7 +236,7 @@ html.tier-desktop .card {
   opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .28s ease, transform .28s ease;
 }
 html.tier-desktop.in-seq .chapter.is-active .card, html.tier-desktop .card:focus-within { opacity: 1; transform: none; pointer-events: auto; }
-html.tier-desktop .stage .frame { width: max(100vw, 100svh * 1440 / 813); height: max(100svh, 100vw * 813 / 1440); }
+html.tier-desktop .stage .frame { width: max(100vw, 100svh * 16 / 9); height: max(100svh, 100vw * 9 / 16); }
 html.tier-desktop .stage .note-illus { right: 88px; bottom: 20px; }
 html.tier-desktop .stage .cond-chip { right: 88px; top: calc(var(--header-h) + 18px); }
 
@@ -260,7 +260,7 @@ html.tier-desktop.in-seq .rail { visibility: visible; opacity: 1; transition: op
 /* mobile: the 3:4 portrait sequence pinned under the header; cards scroll up beneath it, so text
    never covers the picture; sticky action bar */
 html.tier-mobile {
-  --bar-h: 64px; --header-h: 56px; --stage-h: calc(100vw * 813 / 1440); --u: 2.6svh;
+  --bar-h: 64px; --header-h: 56px; --stage-h: calc(100vw * 9 / 16); --u: 2.6svh;
   /* text band under the stage; chapters start half a band lower so each card's middle meets the band's middle
      at its chapter's middle frame. The span stays 167 units, so the frame mapping is unchanged. */
   --band: calc(100svh - var(--header-h) - var(--stage-h) - var(--bar-h));

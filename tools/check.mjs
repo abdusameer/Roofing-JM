@@ -27,7 +27,7 @@ for (const r of refs) {
 // 3. the image sequences and the step-to-file manifest (Phase 2B, Higgsfield clips)
 const M = JSON.parse(fs.readFileSync(path.join(SITE, "media/hf/manifest.json"), "utf8"));
 const TL = { last: M.lastMasterFrame, chapters: M.chapters };
-const RANGE = { desktop: [200, 400, 1440, 813], mobile: [100, 220, 900, 508] };
+const RANGE = { desktop: [200, 400, 1600, 900], mobile: [100, 220, 960, 540] };
 for (const kind of ["desktop", "mobile"]) {
   const S = M.sequences[kind];
   ok(!!S, `sequence ${kind} in manifest`);
@@ -84,9 +84,9 @@ ok(!/lifetime warranty|since 1964|insured|financing|24\/7|emergency|\bfree\b|sol
 ok(/method="dialog"/.test(html), "concept form cannot submit anywhere");
 // 7. payload budgets
 const MB = (b) => b / 1048576;
-ok(MB(M.sequences.desktop.bytes) <= 18, `desktop sequence ${MB(M.sequences.desktop.bytes).toFixed(2)} MB <= 18 MB`);
-ok(MB(M.sequences.mobile.bytes) <= 8, `mobile sequence ${MB(M.sequences.mobile.bytes).toFixed(2)} MB <= 8 MB`);
-ok(M.sequences.desktop.maxFrameBytes / 1024 <= 160, `largest desktop frame ${(M.sequences.desktop.maxFrameBytes / 1024).toFixed(0)} KB <= 160 KB`);
+ok(MB(M.sequences.desktop.bytes) <= 28, `desktop sequence ${MB(M.sequences.desktop.bytes).toFixed(2)} MB <= 28 MB`);
+ok(MB(M.sequences.mobile.bytes) <= 10, `mobile sequence ${MB(M.sequences.mobile.bytes).toFixed(2)} MB <= 10 MB`);
+ok(M.sequences.desktop.maxFrameBytes / 1024 <= 220, `largest desktop frame ${(M.sequences.desktop.maxFrameBytes / 1024).toFixed(0)} KB <= 220 KB`);
 ok(kb("media/hf-stills/desktop/poster.webp") <= 200, `desktop poster ${kb("media/hf-stills/desktop/poster.webp").toFixed(0)} KB <= 200 KB`);
 ok(kb("media/hf-stills/mobile/poster.webp") <= 110, `mobile poster ${kb("media/hf-stills/mobile/poster.webp").toFixed(0)} KB <= 110 KB`);
 // 8. production sources and provenance ship with the repo

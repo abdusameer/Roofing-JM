@@ -21,7 +21,7 @@
   const MANIFEST = "media/hf/manifest.json";
 
   // budgets: parallel downloads, frames per group, decoded frames kept either side of the current one
-  const LIMITS = { desktop: { conc: 4, group: 12, win: 10 }, mobile: { conc: 3, group: 10, win: 7 } };
+  const LIMITS = { desktop: { conc: 6, group: 12, win: 16 }, mobile: { conc: 4, group: 10, win: 10 } };   // wide decode window: the next frames are always ready
 
   let tier = null, kind = null, M = null, S = null, active = false, failed = false, gen = 0;
   let blobs = [], bitmaps = new Map(), decoding = new Map(), queue = [], inflight = 0, errors = 0;
