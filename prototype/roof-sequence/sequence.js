@@ -21,7 +21,7 @@
   const MANIFEST = "media/hf/manifest.json";
 
   // budgets: parallel downloads, frames per group, decoded frames kept either side of the current one
-  const LIMITS = { desktop: { conc: 6, group: 12, win: 16 }, mobile: { conc: 4, group: 10, win: 10 } };   // wide decode window: the next frames are always ready
+  const LIMITS = { desktop: { conc: 6, group: 12, win: 12 }, hi: { conc: 6, group: 12, win: 6 }, mobile: { conc: 4, group: 10, win: 10 } };   // decode ahead, memory-bounded (2560 bitmaps are 15 MB each)   // wide decode window: the next frames are always ready
 
   let tier = null, kind = null, M = null, S = null, active = false, failed = false, gen = 0;
   let blobs = [], bitmaps = new Map(), decoding = new Map(), queue = [], inflight = 0, errors = 0;
@@ -63,7 +63,11 @@
     const my = gen;
     loadManifest().then((man) => {
       if (my !== gen) return;
-      M = man; S = M.sequences[kind];
+      M = man;
+      // sharp desktop screens get the 2560x1440 set (unless the reader asked to save data)
+      const c = navigator.connection;
+      if (kind === "desktop" && (window.devicePixelRatio || 1) >= 1.5 && M.sequences.hi && !(c && c.saveData)) kind = "hi";
+      S = M.sequences[kind];
       canvas.width = S.width; canvas.height = S.height;
       blobs = new Array(S.files || S.count).fill(null);
       buildDots();

@@ -27,26 +27,27 @@ for (const r of refs) {
 // 3. the image sequences and the step-to-file manifest (Phase 2B, Higgsfield clips)
 const M = JSON.parse(fs.readFileSync(path.join(SITE, "media/hf/manifest.json"), "utf8"));
 const TL = { last: M.lastMasterFrame, chapters: M.chapters };
-const RANGE = { desktop: [200, 400, 1600, 900], mobile: [100, 220, 960, 540] };
-for (const kind of ["desktop", "mobile"]) {
+const RANGE = { desktop: [200, 400, 1600, 900], mobile: [100, 220, 960, 540], hi: [200, 400, 2560, 1440] };
+for (const kind of ["desktop", "mobile", "hi"]) {
   const S = M.sequences[kind];
   ok(!!S, `sequence ${kind} in manifest`);
   if (!S) continue;
   const [lo, hi, w, h] = RANGE[kind];
   ok(S.count >= lo && S.count <= hi, `${kind} scroll steps ${S.count} within ${lo}-${hi}`);
   ok(S.width === w && S.height === h, `${kind} frames ${S.width}x${S.height}`);
-  const files = fs.readdirSync(path.join(SITE, "media/hf", kind)).filter((f) => f.endsWith(".webp"));
-  ok(files.length === S.files, `${kind}: ${files.length} webp files = ${S.files} unique images`);
+  const files = fs.readdirSync(path.join(SITE, "media/hf", kind)).filter((f) => f.endsWith(".avif"));
+  ok(files.length === S.files, `${kind}: ${files.length} avif files = ${S.files} unique images`);
   ok(S.map.length === S.count && S.map.every((f) => f >= 0 && f < S.files), `${kind}: every step maps to an image`);
   ok(S.master.length === S.count && S.master[0] === 0 && S.master[S.count - 1] === TL.last, `${kind}: master map spans 0-${TL.last}`);
   ok(S.master.every((m, i) => i === 0 || m > S.master[i - 1]), `${kind}: master map strictly increasing (reverse scroll = reverse time)`);
   ok(S.first > 0 && S.keyframes.every((k) => k >= 0 && k < S.count), `${kind}: first-chapter and keyframe lists valid`);
-  const st = M.stills[kind];
+  const sk = kind === "hi" ? "desktop" : kind;   // the 2560 set shares the desktop stills
+  const st = M.stills[sk];
   ok(st.poster && st.poster.frame === 0, `${kind}: poster is step 0`);
   ok(st.final && st.final.frame === S.count - 1, `${kind}: final image is the last step`);
   const fb = Object.keys(st).filter((k) => k !== "poster" && k !== "final");
   ok(fb.length >= 5 && fb.length <= 7, `${kind}: ${fb.length} fallback keyframes`);
-  for (const k of Object.keys(st)) ok(exists(`media/hf-stills/${kind}/${k}.webp`), `still ${kind}/${k}`);
+  for (const k of Object.keys(st)) ok(exists(`media/hf-stills/${sk}/${k}.webp`), `still ${sk}/${k}`);
 }
 // the return and the reassembly are the forward clips exactly reversed (same images, opposite order)
 {

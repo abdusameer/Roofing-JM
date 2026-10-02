@@ -13,11 +13,11 @@ SITE = os.path.join(ROOT, "prototype/roof-sequence")
 HF = os.path.join(ROOT, "higgsfield")
 ap = argparse.ArgumentParser()
 ap.add_argument("--frames", required=True)
-ap.add_argument("--q", type=int, default=68); ap.add_argument("--q-mobile", type=int, default=64)
+ap.add_argument("--q", type=int, default=62); ap.add_argument("--q-mobile", type=int, default=58); ap.add_argument("--q-hi", type=int, default=56)
 a = ap.parse_args()
 
 SRC = {k: sorted(glob.glob(os.path.join(a.frames, k, "*.png"))) for k in ("a", "b", "c")}
-STEP = {"a": 3, "b": 3, "c": 4}           # every 3rd frame of A and B, every 4th of C (24 fps sources) keeps the payload in budget
+STEP = {"a": 2, "b": 2, "c": 3}           # every 3rd frame of A and B, every 4th of C (24 fps sources) keeps the payload in budget
 HOLD_OPEN, HOLD_END = 10, 10
 MASTER = os.path.join(HF, "v2/masters/roof-complete-master.png")   # 4K v2 masters
 
@@ -68,15 +68,15 @@ def fit(src, w, h):
 
 def write_seq(kind, w, h, q, file_ids, steps):
     out = os.path.join(SITE, "media/hf", kind); os.makedirs(out, exist_ok=True)
-    for old in glob.glob(os.path.join(out, "*.webp")): os.remove(old)
+    for old in glob.glob(os.path.join(out, "*.webp")) + glob.glob(os.path.join(out, "*.avif")): os.remove(old)
     remap = {fid: n for n, fid in enumerate(file_ids)}
     sizes = []
     for n, fid in enumerate(file_ids):
-        p = os.path.join(out, f"{n:04d}.webp"); fit(files[fid][1], w, h).save(p, "WEBP", quality=q, method=6); sizes.append(os.path.getsize(p))
+        p = os.path.join(out, f"{n:04d}.avif"); fit(files[fid][1], w, h).save(p, "AVIF", quality=q, speed=6); sizes.append(os.path.getsize(p))
     smap = [remap[tl[s]] for s in steps]
     first = sum(1 for s in steps if s <= beats["opening"][1]) + 1
     kf = sorted(set(list(range(0, len(steps), 8)) + [len(steps) - 1]))
-    return {"count": len(steps), "files": len(file_ids), "width": w, "height": h, "path": f"media/hf/{kind}/{{i}}.webp", "pad": 4,
+    return {"count": len(steps), "files": len(file_ids), "width": w, "height": h, "path": f"media/hf/{kind}/{{i}}.avif", "pad": 4,
             "map": smap, "master": steps, "first": first, "keyframes": kf, "bytes": sum(sizes), "maxFrameBytes": max(sizes), "quality": q}
 
 man = {"version": 3, "generated": datetime.date.today().isoformat(),
@@ -93,6 +93,8 @@ man = {"version": 3, "generated": datetime.date.today().isoformat(),
 # desktop: every unique file, every step
 all_ids = sorted(set(tl))
 man["sequences"]["desktop"] = write_seq("desktop", 1600, 900, a.q, all_ids, list(range(len(tl))))
+# sharp (high-DPR) desktop screens: same steps and images at 2560x1440
+man["sequences"]["hi"] = write_seq("hi", 2560, 1440, a.q_hi, all_ids, list(range(len(tl))))
 # mobile: fewer frames and a shorter scroll (every 2nd step, every boundary kept), the full 16:9 frame shown
 # uncropped until a separately composed portrait set exists
 msteps = sorted(set(list(range(0, len(tl), 2)) + [b for v in beats.values() for b in v]))
