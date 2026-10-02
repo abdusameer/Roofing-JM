@@ -320,3 +320,11 @@ html.tier-mobile.in-seq .seq-skip {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0s !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* weather chapters on desktop: sample center-right, its description directly beneath it */
+html.tier-desktop .stage .frame { transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+html.tier-desktop.focus-panel .chapter.is-active .card {
+  left: auto; right: 7vw; top: var(--card-top, 54vh); bottom: auto; width: clamp(320px, 27vw, 520px);
+  max-height: calc(100svh - var(--card-top, 54vh) - 72px);   /* stops above the bottom disclaimer */
+}
+@media (max-width: 1279.98px) { html.tier-desktop.focus-panel .chapter.is-active .card { width: clamp(300px, 34vw, 420px); right: 6vw; } }

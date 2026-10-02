@@ -272,7 +272,33 @@
     const id = cond ? cond.id : "";
     if (id !== curCond) { curCond = id; chip.dataset.c = id; chip.classList.toggle("on", !!cond); if (cond) chip.lastChild.textContent = cond.label; }
     illus.classList.toggle("on", m >= M.illustrationNote[0] && m <= M.illustrationNote[1]);
+    focusPanel(!!cond);
   }
+
+  /* weather chapters (desktop): bring the isolated roof sample to the center-right (about 70% x, 40% y)
+     and set the description card just beneath it. The frame is shifted and zoomed only as far as it
+     can go while still covering the whole stage; the card never runs into the disclaimer. */
+  const PANEL = { x: 0.83, y: 0.24, h: 0.32 };          // sample centre and height in the frame (fractions)
+  let focusOn = false;
+  function focusPanel(on) {
+    on = on && tier === "desktop";
+    if (!on) {
+      if (focusOn) { focusOn = false; frameBox.style.transform = ""; frameBox.style.transformOrigin = ""; html.classList.remove("focus-panel"); }
+      return;
+    }
+    focusOn = true;
+    const sb = stage.getBoundingClientRect(), W = frameBox.offsetWidth, H = frameBox.offsetHeight, left = (sb.width - W) / 2;
+    const px = left + PANEL.x * W, py = PANEL.y * H;
+    let tx = 0.70 * window.innerWidth, ty = 0.40 * window.innerHeight - sb.top;
+    let sc = Math.max(1, (sb.width - tx) / (left + W - px), tx / (px - left), ty / py, (sb.height - ty) / (H - py));
+    if (sc > 1.5) { sc = 1.5; tx = Math.max(tx, sb.width - (left + W - px) * sc); ty = Math.min(ty, py * sc); }
+    frameBox.style.transformOrigin = `${PANEL.x * 100}% ${PANEL.y * 100}%`;
+    frameBox.style.transform = `translateX(-50%) translate(${(tx - px).toFixed(1)}px, ${(ty - py).toFixed(1)}px) scale(${sc.toFixed(3)})`;
+    const bottom = sb.top + ty + (PANEL.h / 2) * H * sc;                 // sample's lower edge in the viewport
+    html.style.setProperty("--card-top", Math.round(Math.min(bottom + 32, window.innerHeight * 0.56)) + "px");
+    html.classList.add("focus-panel");
+  }
+  window.addEventListener("resize", () => { if (focusOn) { focusOn = false; focusPanel(true); } });
 
   /* ---------------------------------------------------------------- anatomy markers (numbers match the card list) */
   function buildDots() {
