@@ -219,30 +219,39 @@ html.tier-desktop .stage, html.tier-mobile .stage { display: block; }
 .cond-chip.on { opacity: 1; }
 .cond-chip[data-c="heat"] i { background: var(--sun); } .cond-chip[data-c="wind"] i { background: var(--air); } .cond-chip[data-c="rain"] i { background: var(--water); }
 
-html.tier-desktop .sequence .chapters { position: relative; z-index: 2; margin-top: -100vh; margin-top: -100svh; }
+html.tier-desktop { --stage-h: calc(100svh - var(--header-h)); }
+html.tier-desktop .stage { top: var(--header-h); height: var(--stage-h); }
+html.tier-desktop .sequence .chapters { position: relative; z-index: 2; margin-top: calc(-1 * var(--stage-h)); }
 html.tier-mobile .sequence .chapters { position: relative; z-index: 2; }
 html.tier-desktop .chapter, html.tier-mobile .chapter { display: block; max-width: none; margin: 0; padding: 0; border: 0; }
 /* spacing lives in the chapter padding (a card margin would collapse through and add dead scroll) */
-html.tier-desktop { --u: 3svh; --trail: calc(100svh - var(--u)); }   /* span = (steps − 1) units, so chapter k starts exactly at step f0 */
+html.tier-desktop { --u: 3svh; --trail: calc(100svh - var(--header-h) - var(--u)); }   /* span = (steps − 1) units, so chapter k starts exactly at step f0 */
 html.tier-desktop .chapter { height: calc(var(--n) * var(--u)); padding: 0; }
 html.tier-desktop .chapter:last-child, html.tier-mobile .chapter:last-child { height: calc(var(--n) * var(--u) + var(--trail)); }
 /* desktop text column: one fixed card slot that crossfades to the active chapter (chapters can be shorter
    than their text, so cards never scroll over each other). Inactive cards stay in the accessibility tree;
    a focused card always shows. */
 html.tier-desktop .card {
-  position: fixed; z-index: 2; top: calc(var(--header-h) + 7svh); left: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
-  width: min(30rem, 36vw); max-height: calc(100svh - var(--header-h) - 11svh); overflow: auto;
-  background: color-mix(in srgb, var(--sheet) 95%, transparent); border: 1px solid color-mix(in srgb, var(--line) 40%, transparent); border-radius: var(--radius); padding: var(--s6);
+  position: fixed; z-index: 2; top: auto; bottom: 4svh; left: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  width: min(25rem, 30vw); max-height: calc(var(--stage-h) - 8svh); overflow: auto;
+  background: color-mix(in srgb, var(--sheet) 93%, transparent); border: 1px solid color-mix(in srgb, var(--line) 40%, transparent); border-radius: var(--radius); padding: var(--s5);
+  box-shadow: 0 10px 30px rgba(14, 13, 12, .18); font-size: 0.95rem;
   opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .28s ease, transform .28s ease;
 }
 html.tier-desktop.in-seq .chapter.is-active .card, html.tier-desktop .card:focus-within { opacity: 1; transform: none; pointer-events: auto; }
-html.tier-desktop .stage .frame { width: max(100vw, 100svh * 16 / 9); height: max(100svh, 100vw * 9 / 16); }
+/* bottom-left text card stays compact so the roof and the floating section read above it */
+html.tier-desktop .card h1 { font-size: clamp(2.2rem, 3.4vw, 3.4rem); }
+html.tier-desktop .card h2 { font-size: clamp(1.5rem, 2.1vw, 2.1rem); }
+html.tier-desktop .card .cond { font-size: clamp(2.2rem, 3.4vw, 3.2rem) !important; }
+html.tier-desktop .card .points, html.tier-desktop .card .layers { gap: var(--s2); }
+/* cover the stage; on wide screens crop from the bottom (garden), never the roof or the floating section */
+html.tier-desktop .stage .frame { top: 0; transform: translateX(-50%); width: max(100vw, var(--stage-h) * 16 / 9); height: max(var(--stage-h), 100vw * 9 / 16); }
 html.tier-desktop .stage .note-illus { right: 88px; bottom: 20px; }
-html.tier-desktop .stage .cond-chip { right: 88px; top: calc(var(--header-h) + 18px); }
+html.tier-desktop .stage .cond-chip { right: 88px; top: 18px; }
 
 /* desktop: the stage starts under the concept bar and header, so the opening frame is whole at first paint */
 html.tier-desktop .concept-bar { position: relative; z-index: 41; height: 30px; line-height: 30px; padding-top: 0; padding-bottom: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-html.tier-desktop .sequence { margin-top: calc(-30px - var(--header-h)); }
+html.tier-desktop .sequence { margin-top: 0; }
 
 /* chapter rail (desktop), real links, 44px targets */
 html.tier-desktop .rail { display: block; position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 30; visibility: hidden; opacity: 0; transition: opacity .2s, visibility 0s .2s; }
